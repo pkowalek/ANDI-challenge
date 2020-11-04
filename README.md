@@ -17,8 +17,9 @@ This repository contains the necessary codes written in Python 3 to train the cl
 
 ### 2.1 Basic assumption
 
-As our previous classifications attempts [1],[2] brought good results, we decided to try these algorithms to validate if the same methodology could be adapted for 5 different types of motions.
-For each dimension, we extracted the characteristics fr each trajectory, and separate classifiers were trained for 1D, 2D and 3D subtasks.
+As our previous classifications attempts [1],[2] brought us good results in the classification problem of STP trajectories, we decided to use these algorithms and methods to ANDI challenge.
+For each dimension, we extracted the characteristics for each trajectory, and we trained separate classifier for 1D, 2D and 3D subtasks.
+Gradient boosting model is built from multiple decision trees. The trees are not independent. The predictions of individual trees are made sequentially by learning from mistakes committed by the ensemble.
 
 ### 2.2 Characteristics used for feeding model:
 - diffusion coeffitient D
