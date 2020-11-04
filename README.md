@@ -22,14 +22,14 @@ For each dimension, we extracted the characteristics for each trajectory, and we
 Gradient boosting model is built from multiple decision trees. The trees are not independent. The predictions of individual trees are made sequentially by learning from mistakes committed by the ensemble.
 
 ### 2.2 Characteristics used for feeding model:
-- diffusion coeffitient D
+- diffusion coefficient 
 - anomalous exponent
 - efficiency
 - mean squared displacement ratio
 - straightness
 - max excursion normalised
 - asymmetry (only 2D, 3D)
-- fractald imension
+- fractal dimension
 - gaussianity
 - kurtosis (only 2D, 3D)
 - trappedness 
