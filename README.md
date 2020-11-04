@@ -45,15 +45,15 @@ For each dimension, we extracted the characteristics fr each trajectory, and sep
 1. Download the whole repository and extract it in a directory of your choice.
 
 2. If you want to train new classifiers:
-a. run _01_generate_data_*D scripts to download data
-b. run _04_generate_characteristicts_Andi script to generate characteristics
-c. run _05_split_data script to prepare data
-d. run _06_generate_gb_hyperparameters script to look for the best fit of hyperparameters
-e. run _07_model_generator script for generating a model
+a. run _01_generate_data_*D scripts to download data <br>
+b. run _04_generate_characteristicts_Andi script to generate characteristics <br>
+c. run _05_split_data script to prepare data <br>
+d. run _06_generate_gb_hyperparameters script to look for the best fit of hyperparameters <br>
+e. run _07_model_generator script for generating a model <br>
 
 3. If you want to get results for new data (classifiers could be found in Models folder):
-a. Put your txt data into ValidationDatasets folder
-b. Run get_results script
+a. Put your txt data into ValidationDatasets folder <br>
+b. Run get_results script <br>
 
 
 ## References
