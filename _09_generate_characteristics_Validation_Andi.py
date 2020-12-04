@@ -62,7 +62,7 @@ def generate_characteristics(characteristics_filename, set_name, dim):
     pool.join()
     results = pd.concat(characteristics_data)
     results = results.replace([np.inf, -np.inf], np.nan)
-    results = results.dropna()
+    #results = results.dropna()
     results.reset_index(inplace=True)
     if not os.path.exists(os.path.join(path_to_save, set_name)):
         os.makedirs(os.path.join(path_to_save, set_name))

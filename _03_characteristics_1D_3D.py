@@ -65,10 +65,10 @@ class Characteristic:
                             "trappedness"]
         else:
             self.values = [self.file, self.type, self.motion, self.D, self.alpha, self.efficiency,
-                           self.fractal_dimension, self.mean_gaussianity, self.diff_kurtosis,
+                           self.fractal_dimension, self.mean_gaussianity, 
                            self.mean_squared_displacement_ratio, self.straightness, self.trappedness]
             self.columns = ["file", "diff_type", "motion", "D", "alpha", "efficiency", "fractal_dimension",
-                            "mean_gaussianity", "diff_kurtosis", "mean_squared_displacement_ratio", "straightness",
+                            "mean_gaussianity", "mean_squared_displacement_ratio", "straightness",
                             "trappedness"]
         self.data = pd.DataFrame([self.values], columns=self.columns)
 

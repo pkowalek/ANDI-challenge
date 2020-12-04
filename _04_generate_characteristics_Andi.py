@@ -64,7 +64,6 @@ def generate_characteristics(characteristics_filename, dim, dataset):
 
 if __name__ == "__main__":
     generate_characteristics(characteristics_filename="characteristics_1D.csv", dim=1, dataset="dataset_Andi_1")
-    generate_characteristics(characteristics_filename="characteristics_3D.csv", dim=3, dataset="dataset_Andi_3")
-    generate_characteristics(characteristics_filename="characteristics_2D.csv", dim=2, dataset="dataset_Andi_2")
-
+    generate_characteristics(characteristics_filename="characteristics_2D.csv", dim=1, dataset="dataset_Andi_2")
+    generate_characteristics(characteristics_filename="characteristics_3D.csv", dim=1, dataset="dataset_Andi_3")
     np.load = np_load_old

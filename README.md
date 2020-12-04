@@ -28,13 +28,13 @@ Gradient boosting model is built from multiple decision trees. The trees are not
 - mean squared displacement ratio
 - straightness
 - max excursion normalised
-- asymmetry (only 2D, 3D)
+- asymmetry 
 - fractal dimension
 - gaussianity
-- kurtosis (only 2D, 3D)
+- kurtosis 
 - trappedness 
-- velocity autocorrelation (only 2D)
-- p variation (only 2D)
+- p variation
+- T stat
 
 ### 2.3 Algorithms
 

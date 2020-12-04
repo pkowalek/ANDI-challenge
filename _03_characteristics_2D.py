@@ -53,17 +53,18 @@ class Characteristic:
         self.trappedness = self.get_trappedness()
         self.velocity_autocorrelation, self.velocity_autocorrelation_names = self.get_velocity_autocorrelation([1])
         self.p_variations, self.p_variation_names = self.get_pvariation_test(p_list=np.arange(1, 6))
+        self.maximum_ts = self.get_maximum_test_statistic()
 
         self.values = [self.file, self.type, self.motion, self.D_new, self.alpha,
                        self.efficiency, self.mean_squared_displacement_ratio, self.straightness,
                        self.max_excursion_normalised, self.asymmetry,
                        self.fractal_dimension, self.mean_gaussianity, self.diff_kurtosis,
-                       self.trappedness] + list(self.velocity_autocorrelation) + list(self.p_variations)
+                       self.trappedness,self.maximum_ts] + list(self.p_variations)
         self.columns = ["file", "diff_type", "motion", "D", "alpha",
                         "efficiency", "mean_squared_displacement_ratio", "straightness",
                         "max_excursion_normalised", "asymmetry",
                         "fractal_dimension", "mean_gaussianity", "diff_kurtosis",
-                        "trappedness"] + self.velocity_autocorrelation_names + self.p_variation_names
+                        "trappedness","max_ts"] + self.p_variation_names
 
 
         self.data = pd.DataFrame([self.values], columns=self.columns)
@@ -292,7 +293,7 @@ class Characteristic:
             m_list = np.arange(1, max_m + 1)
 
             test_values = []
-            p_var = generate_empirical_pvariation(self.x, self.y, p_list, m_list)
+            p_var = generate_empirical_pvariation(self.data, p_list, m_list)
             for i in range(len(p_list)):
                 pv = p_var[i]
                 gamma_power_fit = LinearRegression().fit(np.log(m_list).reshape(-1, 1), np.log(pv))
@@ -314,3 +315,16 @@ class Characteristic:
         c = sum((self.y - mean(self.y)) ** 2) / len(self.y)
         b = sum((self.x - mean(self.x)) * (self.y - mean(self.y))) / len(self.x)
         return np.array([[a, b], [b, c]])
+
+    def get_maximum_test_statistic(self):
+        """
+        :return: float, the value of the maximum test statistics
+        """
+        distance = np.array(
+            [self.get_displacement(self.x[i], self.y[i], self.x[0], self.y[0]) for i in range(1, self.N)])
+        d_max = np.max(distance)
+        # TODO: The sigma estimator can be improved (Briane et al., 2018)
+        sigma_2 = 1 / (2 * (self.N - 1) * self.dt) * np.sum(self.displacements ** 2)
+        ts = d_max / np.sqrt(sigma_2 * self.T)
+
+        return ts
